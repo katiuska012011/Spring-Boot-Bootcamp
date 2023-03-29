@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html >
+    <head>
+        <title>Painting</title>
+    </head>
+    <body>               
+        <div th:switch="${painting}">
+            <div th:case="'starry-night'">
+                <h1>Starry Night</h1>
+                <img src="images/starry-night.jpeg" alt="Starry-night" width="300">
+                <p th:text="'Test Case: '+ ${painting}"></p>
+            </div>
+            <div th:case="'mona-lisa'">
+                <h1>Mona Lisa</h1>
+                <img src="images/mona-lisa.jpeg" alt="Mona-lisa" width="300">
+            </div>
+        </div>
+    </body>
+</html>

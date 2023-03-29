@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Table</title>
+</head>
+<style>
+    table, th, td {
+      border:1px solid black;
+    }
+    </style>
+<body>
+    <h2>Staff List</h2>
+
+    <table  style="width:50%">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Role</th>
+        </tr>
+        <tr th:each="employee:${employee}">
+            <td th:text="${employee.name}"></td>
+            <td th:text="${employee.age}"></td>
+            <td th:text="${employee.role}"></td>
+        </tr>
+    </table>
+</body>
+
+</html>
