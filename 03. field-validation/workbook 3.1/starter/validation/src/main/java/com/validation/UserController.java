@@ -23,7 +23,7 @@ public class UserController {
     }
 
     @PostMapping("/submitItem")
-    public String submitItem(@Valid User user, BindingResult result) {
+    public  String submitItem(@Valid User user, BindingResult result) {
         return "redirect:result";
     }
 }
