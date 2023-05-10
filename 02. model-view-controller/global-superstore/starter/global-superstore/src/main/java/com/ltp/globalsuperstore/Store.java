@@ -20,7 +20,6 @@ public class Store {
     @GetMapping("/")
     public String getForm(Model model, @RequestParam(required = false) String id) {
 
-        System.out.println("id: " + id);
         int index = getIndexFromId(id);
         model.addAttribute("item", index == Constants.NOT_FOUND ? new Item() : items.get(index));
         model.addAttribute("categories", Constants.CATEGORIES);
