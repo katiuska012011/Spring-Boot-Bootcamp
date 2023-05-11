@@ -24,6 +24,12 @@ public class UserController {
 
     @PostMapping("/submitItem")
     public  String submitItem(@Valid User user, BindingResult result) {
+
+        if(result.hasErrors()) return "sign-up";
+
+        if(user.getLastName().equals(user.getFirstName())){
+            result.rejectValue(user.getLastName(), "", "please enter valid data");
+        }
         return "redirect:result";
     }
 }
