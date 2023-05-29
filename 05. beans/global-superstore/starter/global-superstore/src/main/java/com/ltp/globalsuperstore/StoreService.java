@@ -4,22 +4,30 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class StoreService {
 
-    StoreRepository storeRepository = new StoreRepository();
-    
+    StoreRepository storeRepository;
+
+    public StoreService(StoreRepository storeRepository) {
+        this.storeRepository = storeRepository;
+    }
+
     public Item getItem(int index) {
         return storeRepository.getItem(index);
     }
 
     public void addItem(Item item) {
-        storeRepository.addItem(item);;
+        storeRepository.addItem(item);
+        ;
     }
 
     public void updateItem(Item item, int index) {
         storeRepository.updateItem(item, index);
     }
-    
+
     public List<Item> getItems() {
         return storeRepository.getItems();
     }
@@ -31,7 +39,8 @@ public class StoreService {
 
     public int getIndexFromId(String id) {
         for (int i = 0; i < getItems().size(); i++) {
-            if (getItem(i).getId().equals(id)) return i;
+            if (getItem(i).getId().equals(id))
+                return i;
         }
         return Constants.NOT_FOUND;
     }
