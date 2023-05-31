@@ -17,6 +17,14 @@ public class Grade {
     private String id;
 
 
+    public Grade(@NotBlank(message = "Name cannot be blank") String name,
+            @NotBlank(message = "Subject cannot be blank") String subject, String score) {
+        this.name = name;
+        this.subject = subject;
+        this.score = score;
+        this.id = UUID.randomUUID().toString();
+    }
+
     public Grade() {
         this.id = UUID.randomUUID().toString();
     }
